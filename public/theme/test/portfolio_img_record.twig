@@ -1,0 +1,27 @@
+{% extends 'lang_detect.twig' %}
+{% block main %}
+
+    {% if language == 'pl' %}
+        {% setcontent images = projectimgcontenttype where { parentpl: project.id } %}
+    {% elseif language == 'en' %}
+        {% setcontent images = projectimgcontenttype where { parenten: project.id } %}
+    {% endif %}
+
+    {% for image in images %}
+        <div>
+            <h1>{{ image.title }}{{ image.title }}cos</h1>
+            <br>
+            <p>{{ image.description|escape[0:600] }}</p>
+            <br>
+            <img src="/files/{{ image.image }}">
+            <p>{{ image.is_implemented }}</p>
+            <p>PARAM 1 {{ image.param1 }}</p>
+            <p>PARAM 2 {{ image.param2 }}</p>
+            <p>PARAM 3 {{ image.param3 }}</p>
+            <p>PARAM 4 {{ image.param4 }}</p>
+            <p>{{ image.meta_keywords }}</p>
+            <p>{{ image.meta_description }}</p>
+            <p>{{ image.og_type }}</p>
+        </div>
+    {% endfor %}
+{% endblock main %}
