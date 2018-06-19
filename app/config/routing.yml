@@ -1,6 +1,6 @@
 # This file defines user-definable routes for the frontend of your Bolt website.
 # Check below for examples, or read the documentation at
-# https://docs.bolt.cm/configuration/routing
+# https://docs.bolt.cm/templates/templates-routes#routing
 
 # ------------------------------------------------------------------------------
 # Place your own routes here, that have a HIGHER priority than the default routes.
@@ -28,7 +28,6 @@ preview:
         _controller: controller.frontend:preview
     requirements:
         contenttypeslug: controller.requirement:anyContentType
-    methods: [POST]
 
 contentlink:
     path: /{contenttypeslug}/{slug}
@@ -54,7 +53,64 @@ contentlisting:
 # ------------------------------------------------------------------------------
 # Place your own routes here, that have a LOWER priority than the default routes.
 
+# ------------------------------------------------------------------------------
+# [pl] Polish
+# ------------------------------------------------------------------------------
 
+pagespl:
+    path:               /{slug}
+    defaults:           { _controller: 'Bolt\Controllers\Frontend::record', 'contenttypeslug': 'pagespl' }
+    contenttype:        pagespl
+
+articlespl:
+    path:               /artykul/{slug}
+    defaults:           { _controller: 'Bolt\Controllers\Frontend::record', 'contenttypeslug': 'articlespl' }
+    contenttype:        articlespl
+
+portfoliopl:
+#    path:               /portfolio/{slug}
+    path:               /projekt/{slug}
+    defaults:           { _controller: 'Bolt\Controllers\Frontend::record', 'contenttypeslug': 'portfoliopl' }
+    contenttype:        portfoliopl
+
+# ------------------------------------------------------------------------------
+# [en] English
+# ------------------------------------------------------------------------------
+
+pagesen:
+    path:               /en/{slug}
+    defaults:           { _controller: 'Bolt\Controllers\Frontend::record', 'contenttypeslug': 'pagesen' }
+    contenttype:        pagesen
+
+articlesen:
+    path:               /en/article/{slug}
+    defaults:           { _controller: 'Bolt\Controllers\Frontend::record', 'contenttypeslug': 'articlesen' }
+    contenttype:        articlesen
+
+portfolioen:
+#    path:               /en/portfolio/{slug}
+    path:               /en/project/{slug}
+    defaults:           { _controller: 'Bolt\Controllers\Frontend::record', 'contenttypeslug': 'portfolioen' }
+    contenttype:        portfolioen
+
+# ------------------------------------------------------------------------------
+# [de] Deutsch
+# ------------------------------------------------------------------------------
+
+pagesde:
+    path:               /de/{slug}
+    defaults:           { _controller: 'Bolt\Controllers\Frontend::record', 'contenttypeslug': 'pagesde' }
+    contenttype:        pagesde
+
+articlesde:
+    path:               /de/artikel/{slug}
+    defaults:           { _controller: 'Bolt\Controllers\Frontend::record', 'contenttypeslug': 'articlesde' }
+    contenttype:        articlesde
+
+portfoliode:
+    path:               /de/mappe/{slug}
+    defaults:           { _controller: 'Bolt\Controllers\Frontend::record', 'contenttypeslug': 'portfoliode' }
+    contenttype:        portfoliode
 
 # ------------------------------------------------------------------------------
 # Routes examples:
@@ -67,7 +123,7 @@ contentlisting:
 #         _controller: controller.frontend:record
 #         contenttypeslug: page
 #     requirements:
-#         slug: '[a-z0-9-_]+'
+#         slug: [a-z0-9-_]+
 
 
 # Example route with a host requirement
@@ -101,6 +157,34 @@ contentlisting:
 #         contenttypeslug: page
 #         slug: about
 #     recordslug: page/about
+
+
+
+# Example: Use the following to add a route for contenttypes in your URL scheme. In this example we
+# add routing for the 'chapter' taxonomy, so we can link to /meta/lorum-ipsum or /main/foo-bar.
+# note that the 'showcase' in the defaults and requirements determine the fallback, for when
+# no option is specified in a specifid record. Basically, this makes the route respond to the
+# default route /showcase/foo-bar as well.
+
+# chapterbinding:
+#     path: /{chapters}/{slug}
+#     defaults:
+#         _controller: controller.frontend:record
+#         contenttypeslug: showcases
+#         chapters: showcase
+#     requirements:
+#         chapters: [ controller.requirement:singleTaxonomy, [chapters, showcase] ]
+#     contenttype: showcases
+
+# categorybinding:
+#     path: /{categories}/{slug}
+#     defaults:
+#         _controller: controller.frontend:record
+#         contenttypeslug: showcases
+#         categories: none
+#     requirements:
+#         categories: [ controller.requirement:singleTaxonomy, [categories] ]
+#     contenttype: showcases
 
 
 # Supported internal defaults are:

@@ -91,8 +91,8 @@ pagespl:
             type: text
             label: Nagłówek
         description:
-            type: html
-#            length: 600
+            type: customtextarea
+            length: 600
             label: Krótki opis
         descriptionlong:
             type: html
@@ -169,7 +169,7 @@ portfoliopl:
     fields: &portfoliofields
         <<: *contentdefaults
         description:
-            type: html
+            type: customtextarea
             label: Opis projektu
             length: 1000000
         cat1:
@@ -212,12 +212,6 @@ portfoliopl:
         cat13:
             type: checkbox
             label: "Hamptons"
-        cat14:
-            type: checkbox
-            label: "Modern Classic"
-        cat15:
-            type: checkbox
-            label: "Nasze Trendy"
         param1:
             type: select
             values: [ flats, houses, tenement, apartments, commercial ]
@@ -236,7 +230,7 @@ portfolioen:
     fields:
         <<: *contentdefaults
         description:
-            type: html
+            type: customtextarea
             label: Opis projektu
             length: 1000000
         peer:
@@ -286,12 +280,6 @@ portfolioen:
         cat13:
             type: checkbox
             label: "Hamptons"
-        cat14:
-            type: checkbox
-            label: "Modern Classic"
-        cat15:
-            type: checkbox
-            label: "Trends"
         param1:
             type: select
             values: [ flats, houses, tenement, apartments, commercial ]
@@ -379,12 +367,8 @@ projectimgpl:
             label: "Projekt - rodzic EN"
         param1:
             type: select
-            values: [ livingroom, kitchen, diningroom, bedroom, babyroom, bathroom, wc, hall, cabinet, guestroom, recreationroom, terrace-garden, youth, wardrobe, library, commercial ]
+            values: [ livingroom, kitchen, diningroom, bedroom, babyroom, bathroom, wc, hall, cabinet, guestroom, recreationroom, terrace-garden, commercial ]
             label: "Pomieszczenia"
-        imgmap:
-            prefix: "<span id='projectimg_imagemap' class='btn btn-secondary hidden'>Przypinki</span>"
-            type: hidden
-            label: Przypinki
 
 #projectimgen:
 #    name: Portfolio Photos
@@ -652,10 +636,6 @@ sliderpl:
             type: text
             class: Large
             label: Slogan mały
-        slidelink:
-            type: text
-            label: Adres URL
-            postfix: 'Pamiętaj o prefiksie http:// dla linków zewnętrznych lub znaku "/" (slash) w przypadku linków wewnętrznych, np. /porady/pokoj-dla-nastolatka'
         sloganbigen:
             type: text
             class: large
@@ -665,10 +645,6 @@ sliderpl:
             type: text
             class: Large
             label: Slogan mały EN
-        slidelinken:
-            type: text
-            label: Adres URL EN
-            postfix: 'Pamiętaj o prefiksie http:// dla linków zewnętrznych lub znaku "/" (slash) w przypadku linków wewnętrznych, np. /porady/pokoj-dla-nastolatka'
         image:
             type: image
             label: Zdjęcie
@@ -817,10 +793,6 @@ publicationspl:
         href:
             type: text
             label: Link
-        name:
-            type: text
-            label: Nazwa publikacji
-            postfix: Zawartość tego pola wyświetli się pod zdjęciem w widoku zbiorczym
         pdf:
             type: file
             extensions: [ pdf ]

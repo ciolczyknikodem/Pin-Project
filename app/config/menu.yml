@@ -1,26 +1,61 @@
 # This file defines the menus on the website. See the documentation for
-# details: https://docs.bolt.cm/configuration/menus
+# details: https://docs.bolt.cm/content/menus
 
-main:
-    - label: Home
-      title: This is the first menu item.
-      path: homepage
+mainpl:
+    - label: projekty i realizacje
+      title: Przejdź do Projekty i realizacje
+      path: /projekty-i-realizacje
+    - label: o nas
+      title: Przejdź do O nas
+      path: /o-nas
+    - label: usługi
+      title: Przejdź do Oferta
+      path: /uslugi
+    - label: jak powstaje projekt
+      title: Przejdź do Jak powstaje projekt
+      path: /jak-powstaje-projekt
+    - label: referencje
+      title: Przejdź do Referencje
+      path: /referencje
+    - label: publikacje
+      title: Przejdź do Publikacje
+      path: /publikacje
+    - label: porady
+      title: Przejdź do Porady
+      path: /porady
+    - label: kontakt
+      title: Przejdź do Kontakt
+      path: /kontakt
+    - label: Sklep
+      title: Przejdź do Bonaforma
+      path: https://bonaforma.pl
+      target: _blank
       class: first
-    - label: Second item
-      path: entry/1
-      submenu:
-          - label: Sub 1
-            path: entry/2
-          - label: Sub 2
-            class: menu-item-class
-            path: entry/3
-          - label: Sub 3
-            path: entry/4
-          - label: Sub 4
-            class: sub-class
-            path: page/3
-    - label: All pages
-      path: pages/
-    - label: The Bolt site
-      link: http://bolt.cm
-      class: last
+    
+  
+
+mainen:
+    - label: projects & realizations
+      title: Go to Projects & realizations
+      path: /en/projects-realizations
+    - label: about us
+      title: Go to About us
+      path: /en/about-us
+    - label: services
+      title: Go to serices
+      path: /en/services
+    - label: process
+      title: Go to Process
+      path: /en/process
+    - label: testimonials
+      title: Go to Testimonials
+      path: /en/testimonials
+    - label: publications
+      title: Go to Publications
+      path: /en/publications
+    - label: contact
+      title: Go to Contact
+      path: /en/contact
+    - label: Shop
+      title: Go to our Shop
+      path: https://bonaforma.pl

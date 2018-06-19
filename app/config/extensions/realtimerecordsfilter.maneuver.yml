@@ -1,0 +1,159 @@
+database_tables:
+    main: portfolio
+    child: projectimg
+categories:
+    cat1:
+        slug: newschool
+        name: Nowoczesny
+        nameEN: Contemporary
+    cat2:
+        slug: classic
+        name: Klasyczny
+        nameEN: Classical
+    cat3:
+        slug: scandinavian
+        name: Skandynawski
+        nameEN: Scandinavian
+    cat4:
+        slug: loft
+        name: Loft
+        nameEN: Industrial
+    cat5:
+        slug: vintage
+        name: Vintage
+        nameEN: Vintage
+    cat6:
+        slug: color
+        name: Kolorowe
+        nameEN: Colorful
+    cat7:
+        slug: newyork
+        name: Nowojorski
+        nameEN: New York
+    cat8:
+        slug: provansal
+        name: Prowansalski
+        nameEN: Provencal
+    cat9:
+        slug: english
+        name: Angielski
+        nameEN: English
+    cat10:
+        slug: eclectic
+        name: Eklektyczny
+        nameEN: Eclectic
+    cat11:
+        slug: glamour
+        name: Glamour
+        nameEN: Glamour
+    cat12:
+        slug: artdeco
+        name: Art Déco
+        nameEN: Art Déco
+    cat13:
+        slug: hamptons
+        name: Hamptons
+        nameEN: Hamptons
+    cat14:
+        slug: "modern_classic"
+        name: Modern Classic
+        nameEN: Modern Classic
+    cat15:
+        slug: "trends"
+        name: Nasze Trendy
+        nameEN: Trends
+project_params:
+    param1:
+        slug: objects
+        name: Obiekty
+        nameEN: Interior types
+        value:
+            flats:
+                val: Mieszkania
+                valEN: Flats
+            houses:
+                val: Domy
+                valEN: Houses
+            tenement:
+                val: Kamienice
+                valEN: Historical buildings
+            apartments:
+                val: Rezydencje i Apartamenty
+                valEN: Residences and Apartments
+            commercial:
+                val: Wnętrza komercyjne
+                valEN: Commercial
+    param2:
+        slug: area
+        name: Wielkość
+        nameEN: Size
+        value:
+            sm:
+                val: do 50m2
+                valEN: up to 50 sqm
+            md:
+                val: 50-80m2
+                valEN: 50-80 sqm
+            lg:
+                val: 80-120m2
+                valEN: 80-120 sqm
+            xl:
+                val: większe niż 120m2
+                valEN: over 120 sqm
+image_params:
+    implemented:
+        name: Zdjęcia z realizacji
+        nameEN: Photos from realization
+    param1:
+        slug: rooms
+        name: Pomieszczenia
+        nameEN: Rooms
+        value: 
+            livingroom:
+                val: Salon
+                valEN: Living room
+            kitchen:
+                val: Kuchnia
+                valEN: Kitchen
+            diningroom:
+                val: Jadalnia
+                valEN: Dining room
+            bedroom:
+                val: Sypialnia
+                valEN: Master bedroom
+            babyroom:
+                val: Pokój dziecięcy
+                valEN: Children's room
+            bathroom:
+                val: Łazienka
+                valEN: Bathroom
+            wc:
+                val: WC
+                valEN: WC
+            hall:
+                val: Hol
+                valEN: Corridor
+            cabinet:
+                val: Gabinet
+                valEN: Home office
+            guestroom:
+                val: Pokój gościnny
+                valEN: Guest room
+            recreationroom:
+                val: Pokój rekreacyjny
+                valEN: Hobby
+            terrace-garden:
+                val: Taras/ogród
+                valEN: Terrace/garden
+            youth:
+                val: Pokoje młodzieżowe
+                valEN: Youth room
+            wardrobe:
+                val: Garderoba
+                valEN: Wardrobe
+            library:
+                val: Biblioteka
+                valEN: Library
+            commercial:
+                val: Wnętrze komercyjne
+                valEN: Commercial interior
