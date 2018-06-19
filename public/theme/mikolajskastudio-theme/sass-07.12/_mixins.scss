@@ -1,0 +1,93 @@
+// MIXINS
+//Red gradient
+@mixin red-gradient($angle){
+    background: #D31027; /* fallback for old browsers */
+    background: -webkit-linear-gradient($angle, #D31027 , #EA384D); /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient($angle, #D31027 , #EA384D); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+//Box shadowing
+@mixin box-shadow($x,$y,$blur,$blurspread, $color){
+            box-shadow: #{$x}px #{$y}px #{$blur}px #{$blurspread}px $color;
+    -webkit-box-shadow: #{$x}px #{$y}px #{$blur}px #{$blurspread}px $color;
+       -moz-box-shadow: #{$x}px #{$y}px #{$blur}px #{$blurspread}px $color;
+         -o-box-shadow: #{$x}px #{$y}px #{$blur}px #{$blurspread}px $color;
+}
+//Blur
+@mixin blur($x){
+            filter: blur($x);
+    -webkit-filter: blur($x);
+       -moz-filter: blur($x);
+         -o-filter: blur($x);
+}
+//Smoothing corners with border radius
+@mixin border-radius($radius){
+            border-radius: $radius;
+    -webkit-border-radius: $radius;
+       -moz-border-radius: $radius;
+         -o-border-radius: $radius;
+}
+//Translation shortcode
+@mixin transform($x){
+            transform: $x;
+    -webkit-transform: $x;
+       -moz-transform: $x;
+         -o-transform: $x;
+}
+//Translation shortcode
+@mixin transition($x, $y){
+            transition: $x $y;
+    -webkit-transition: $x $y;
+       -moz-transition: $x $y;
+         -o-transition: $x $y;
+}
+//Image background fully described
+@mixin bg($image,$posx,$posy,$rep,$size){
+    background-image: url('../images/#{$image}');
+    background-position: $posx $posy;
+    background-repeat: $rep;
+    background-size: $size;
+}
+//Image background options - without source image
+@mixin bg-char($posx,$posy,$rep,$size){
+    background-position: $posx $posy;
+    background-repeat: $rep;
+    background-size: $size;
+}
+//Linear-gradient shortcode
+@mixin bg-gradient($gradient){
+    background: linear-gradient($gradient);
+    background: -webkit-linear-gradient($gradient);
+    background: -moz-linear-gradient($gradient);
+    background: -o-linear-gradient($gradient);
+}
+//Absolute positioning
+@mixin absolute($top,$right,$bottom,$left){
+    position: absolute;
+    top: $top;
+    right: $right;
+    bottom: $bottom;
+    left: $left;
+}
+//Circle-shaping divs
+@mixin circle-shaped($dim){
+    width: $dim;
+    height: $dim;
+            border-radius: 50%;
+    -webkit-border-radius: 50%;
+       -moz-border-radius: 50%;
+         -o-border-radius: 50%;  
+}
+//Link without text-decoration
+@mixin undecorated-link{
+        a, a:hover, a:active, a:visited, a:focus{
+            text-decoration: none;
+        }
+}
+//Grayscale
+@mixin grayscale($x){
+            filter: grayscale($x);
+    -webkit-filter: grayscale($x);
+       -moz-filter: grayscale($x);
+         -o-filter: grayscale($x);
+}

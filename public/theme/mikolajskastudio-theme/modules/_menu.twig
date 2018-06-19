@@ -1,0 +1,14 @@
+<ul class="menu-items" id="main-navi">
+    {% for item in menu %}
+        <li class="menu-item"><a href="{{ item.path }}" title="{{ item.title }}"{% if item.target %} target="{{ item.target}}"{% endif %}>{{ item.label }} </a></li>
+    {% endfor %}
+    <li class="menu-item" id="more-navi">
+        <span>WIĘCEJ</span>
+        <img class="more-down" src="">
+        <div class="burger"><span></span></div>
+        <ul class="more-navi-items">
+        </ul>
+    </li>
+</ul>
+
+

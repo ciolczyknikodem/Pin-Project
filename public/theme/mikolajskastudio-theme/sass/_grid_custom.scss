@@ -1,0 +1,17 @@
+$grid: 8.333% 16.6667% 25% 33.333% 41.6667% 50% 58.333% 66.6667% 75% 83.333% 91.6667% 100%;
+$screen: xxs;
+@media (max-width: 480px) {
+    
+    @each $grid-dim in $grid {
+    $i: index($grid, $grid-dim);
+    .col-#{$screen}-#{$i} {
+        width: $grid-dim;
+    }
+    .col-#{$screen}-offset-#{$i} {
+        margin-left: $grid-dim
+    }
+    .col-#{$screen}-offset-0 {
+        margin-left: 0px;
+    }
+}
+}

@@ -1,0 +1,24 @@
+{% setcontent projects = portfoliocontenttype %}
+    {% for project in projects %}
+    <div>
+        <hr>
+        <h1>{{ project.title }}</h1>
+        <br>
+        <p>{{ project.description|escape[0:600] }}</p>
+        <br>
+        <p>PARAM 1 {{ project.param1 }}</p>
+        <p>PARAM 2 {{ project.param2 }}</p>
+        <p>PARAM 3 {{ project.param3 }}</p>
+        <p>PARAM 4 {{ project.param4 }}</p>
+        <p>cat1 {{ project.cat1 }}</p>
+        <p>cat2 {{ project.cat2 }}</p>
+        <p>cat3 {{ project.cat3 }}</p>
+        <p>cat4 {{ project.cat4 }}</p>
+        <p>{{ project.meta_keywords }}</p>
+        <p>{{ project.meta_description }}</p>
+        <p>{{ project.og_type }}</p>
+        <h1>IMAGES</h1>
+        {% include 'portfolio_img_record.twig' %}
+        <hr>
+    </div>
+    {% endfor %}

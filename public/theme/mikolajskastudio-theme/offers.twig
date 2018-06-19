@@ -1,0 +1,58 @@
+{% extends 'modules/_lang_detect.twig' %}
+{% block main %}
+    {% setcontent offers = offerscontenttype where { parent: record.id } %}
+    {% setcontent resources_paragraph = resourcecontenttype ~ '/services-paragraph' %}
+    {% include 'modules/_header.twig' %}
+<script src="https://npmcdn.com/imagesloaded@4.1/imagesloaded.pkgd.min.js"></script>
+    <body class="oferta">
+        {% include 'modules/_top_bar.twig' %}
+        <section id="services" class="clearfix">
+            {% for offer in offers %}
+                <div class="col-lg-3 col-md-4 col-xs-6 col-xxs-12 offers">
+                {% if offer.backgroundimage %}
+                    <div class="offer{% if offer.shape %} shape-{{ offer.shape }}{% endif %}" style="background-image: url(/files/{{offer.backgroundimage}})"><div class="overlay"></div>
+                {% else %}
+                    <div class="offer{% if offer.shape %} shape-{{ offer.shape }}{% endif %}">
+                {% endif %}
+                  <div class="content">
+                    <h3>{{offer.header}}</h3>
+                    <p>{{offer.text}}</p>
+                    {% if offer.image %}
+                      <img src="/files/{{offer.image}}">
+                    {% endif %}
+                  </div>
+                </div>
+             </div>
+            {% endfor %}
+        </section>
+        <section id="services-paragraph">
+            <div class="paragraph-wrapper">
+                {{ resources_paragraph.html }}
+            </div>    
+        </section>
+        {% include 'modules/_footer2.twig' %}
+         <script src="{{ paths.theme }}js/masonry.pkgd.min.js"></script>
+            <script>
+                $(document).ready(function(){
+                    var $grid = $('#services').masonry({
+                        itemSelector: '.offers',
+                        animate: 'true',
+                        });
+                    $grid.masonry('reloadItems')
+                    $grid.masonry('layout');
+                    var blocks = $('.offers');
+                    console.log(blocks);
+                });
+                $(window).resize(function(){
+                    var $grid = $('#services').masonry({
+                         itemSelector: '.offers',
+                         animate: 'true',
+                     });
+                     $grid.masonry('reloadItems')
+                     $grid.masonry('layout');
+                });
+            </script>
+    </body>
+</html>
+{% endblock main %}
+

@@ -1,0 +1,152 @@
+@keyframes scrolldown{
+    0% {
+        opacity: 1;
+        top: 90px;
+    }
+    50%{
+        opacity: 0;
+        top: 140px;
+    }
+    75%{
+        top: 80px;
+        opacity: 0;
+    }
+    100%{
+        top: 80px;
+        opacity: 1;
+    }
+}
+.homepage{
+	.ico {
+		z-index: 2;
+		height: 35px;
+		img {
+			width: 35px;
+			height: 35px;
+		}
+		&:hover{
+			background-color: rgba(black, 0.3);
+			@include transition(0.15s, ease-in);
+			cursor: pointer;
+		}
+	}
+	.ico-about-us {
+		@include absolute(80px,auto,auto,15px);
+		transition: left 0.8s;
+        &.show {
+	       left: 330px;
+        }
+        &.suggesting{
+            animation-name: scrolldown;
+            animation-duration: 2s;
+            animation-iteration-count: 1;
+            animation-delay: 0.5s;
+            animation-timing-function: ease;
+        }
+	}
+	.ico-contact {
+		@include absolute(80px,15px,auto,auto);
+	}
+	.icons-contact{
+		@include absolute(auto,auto,45px,15px);
+		a {
+			display: inline-block;
+		}
+	}
+	.icons-contact-2{
+		@include absolute(auto,auto,45px,55px);
+		a {
+			display: inline-block;
+		}
+	}
+ .icons-contact-3{
+		@include absolute(auto,auto,45px,105px);
+		a {
+			display: inline-block;
+		}
+	}
+	.ico-award {
+		height: 125px;
+		img {
+			width: 125px;
+			height: 125px;
+		}
+		@include absolute(auto,auto,45px,50%);
+		@include transform(translate(-50%, 0))
+	}
+    .badges-container{
+        position: absolute;
+        bottom: 45px;
+        left: 50%;
+        @include transform(translate(-50%,0));
+        width: 100%;
+        z-index: 2;
+        ul.badges-list{
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            @include transform(translate(-50%,0));
+            padding: 0;
+            list-style: none;
+            li.homepage-badge{
+                width: 100px;
+                height: 100px;
+                border: 1px solid $white;
+                float: left;
+                display: block;
+                position: relative;
+                margin-left: 15px;
+                &:first-of-type{
+                    margin-left: 0;
+                }
+                a{
+                    .badge-circle{
+                        z-index: 2;
+                        border: 1px solid $white;
+                        @include circle-shaped(100px);
+                        @include bg-char(50%,50%,no-repeat,cover);
+                        @include transform(translate(-1px,-1px));
+                    }
+                }
+            }
+        }
+    }
+}
+@media(max-width: 768px){
+    .homepage{
+        .badges-container{
+            ul.badges-list{
+                li.homepage-badge{
+                    width: 70px;
+                    height: 70px;
+                    margin-left: 10px;
+                    a{
+                        .badge-circle{
+                            @include circle-shaped(70px);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media(max-width: 480px){
+    .homepage{
+        .badges-container{
+            ul.badges-list{
+                li.homepage-badge{
+                    width: 50px;
+                    height: 50px;
+                    margin-left: 10px;
+                    a{
+                        .badge-circle{
+                            @include circle-shaped(50px);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@import "modules/slider";
+@import "modules/about_toggle";

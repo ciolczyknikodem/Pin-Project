@@ -1,0 +1,53 @@
+{% extends 'modules/_lang_detect.twig' %}
+
+{% block main %}
+    {% include 'modules/_header.twig' %}
+ <link href="{{ paths.theme }}stylesheets/zoombox.css" rel="stylesheet" type="text/css" media="screen" />
+    <body class="article">
+    {% include 'modules/_top_bar.twig' %}
+
+    <section class="clearfix">
+        <div class="col-xs-12 margin-2pc">
+            <h1 id="title">{{ record.topic }}</h1>
+            <div id="content">{{ record.descriptionlong }}</div>
+        </div>
+    </section>
+        {% include 'modules/_footer.twig' %}
+<script type="text/javascript" src="{{ paths.theme }}js/zoombox.js"></script>
+         <script type="text/javascript">
+             var pars = $('#content').children('p');
+             $(pars).each(function(){
+                 var images = $(this).find('img'),
+                     num = $(this).index('p');
+                    for (var i = 0; i<images.length; i++){
+                        var src = $(images[i]).attr('src'),
+                            title = '',
+                            code = $(images[i])[0].outerHTML;
+                        console.log(code);
+                        if($(images[i]).attr('title')){ title = $(images[i]).attr('title')}
+                        $(images[i]).before('<a href="'+src+'" title="'+title+'" class="zoombox zgallery'+num+'">'+code+'</a>');//.after('</a>');
+                        $(images[i]).hide();
+                    }
+             })
+             
+        jQuery(function($){
+            $('a.zoombox').zoombox();
+
+            /**
+            * Or You can also use specific options
+            $('a.zoombox').zoombox({
+                theme       : 'zoombox',        //available themes : zoombox,lightbox, prettyphoto, darkprettyphoto, simple
+                opacity     : 0.8,              // Black overlay opacity
+                duration    : 800,              // Animation duration
+                animation   : true,             // Do we have to animate the box ?
+                width       : 600,              // Default width
+                height      : 400,              // Default height
+                gallery     : true,             // Allow gallery thumb view
+                autoplay : false                // Autoplay for video
+            });
+            */
+        });
+        </script>
+</body>
+</html>
+{% endblock main %}

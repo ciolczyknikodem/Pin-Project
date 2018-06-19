@@ -1,0 +1,69 @@
+{% extends 'modules/_lang_detect.twig' %}
+{% block main %}
+    {% setcontent resources_mail = 'resourcespl/mail' %}
+    {% setcontent resources_fb = 'resourcespl/facebook' %}
+    {% setcontent resources_award = 'resourcespl/award' %}
+    {% setcontent resources_about = resourcecontenttype ~ '/about-toggle' %}
+    {% setcontent badges = badgescontenttype %}
+
+    {% include 'modules/_header.twig' %}
+
+    <body class="home_page2">
+        
+        <div class="page homepage">
+            {% include 'modules/_slider.twig' %}
+            {% include 'modules/_top_bar.twig' %}
+            <div class="ico ico-about-us"><img src="{{ paths.theme }}images/icons/description.png"></div>
+            <div class="ico ico-contact">
+                {% if language == 'pl' %}
+                    <a href="{{ paths.rooturl }}en/mikolajska-studio"><img src="{{ paths.theme }}images/icons/lang.png"></a>
+                {% elseif language == 'en' %}
+                    <a href="{{ paths.rooturl }}"><img src="{{ paths.theme }}images/icons/lang-pl.png"></a>
+                {% endif %}
+            </div>
+            <div class="ico icons-contact">
+                <a href="mailto: {{ resources_mail.html|striptags }}"><img src="{{ paths.theme }}images/icons/kontakt.png"></a>
+            </div>
+            <div class="ico icons-contact-2">
+                <a href="{{ resources_fb.html|striptags }}"><img src="{{ paths.theme }}images/icons/facebook.png"></a>
+            </div>
+            <div class="badges-container clearfix">
+                <ul class="badges-list">
+<!--                start pętli for-->
+                    {% for badge in badges %}
+                        {% if language == 'pl' %}
+                            {% set title = badge.title %}
+                        {% elseif language == 'en' %}
+                            {% set title = badge.titleen %}
+                        {% endif %}
+                <li class="homepage-badge">
+                    <a href="{{ badge.address|striptags }}">
+                        <div class="badge-circle" style="background-image: url('/files/{{ badge.image }}')" title="{{ title }}"></div>
+                    </a>
+                </li>
+                        {% endfor %}
+<!--                koniec pętli for-->
+                </ul>
+            </div>
+            <div class="about-container">
+                <div class="about-text">
+                    {{ resources_about.html }}
+                </div>
+            </div>
+            <script src="{{ paths.theme }}js/about_toggle.js"></script>
+        </div>
+        {% include 'modules/_footer2.twig' %}
+        
+    <script src="{{ paths.theme }}js/main-slider.js"></script>
+        <script>
+            $('.about-container').click(function(){
+               if($(this).hasClass('show')){
+                    $(this).removeClass('show'); 
+                    $('.ico-about-us').removeClass('show');
+                }
+            });
+        </script>
+</body>
+</html>
+
+{% endblock main %}

@@ -1,0 +1,38 @@
+section {
+    background: $bg-color;   
+    min-height: 100vh;
+}
+.refe {
+    height: 400px;
+    padding-top: 70px;
+
+    .ref {
+        text-align: justify;
+        font-size: 0.75em;
+        padding: 70px 20px 20px 20px;
+        border: 1px solid black;
+        @include border-radius(20px);
+        position: relative;
+    
+        p {
+            font-weight: bold;
+            text-align: right;
+            margin: 0;
+        }
+        p:first-of-type {
+            margin-top: 20px;
+        }
+
+        .reffot {
+            @include circle-shaped(100px);
+            @include box-shadow(0,0,0,10,$bg-color);
+            background: $bg-color; 
+            position: absolute;
+            border: 1px solid rgba(0,0,0,1);
+            top: -50px;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+}
+}
+}

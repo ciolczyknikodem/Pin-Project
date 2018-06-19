@@ -1,0 +1,12 @@
+<div class="top-bar col-xs-12">
+    <div class="logo-text">
+        {% if language == 'pl' %}
+            <a href="/"><img src="{{ paths.theme }}images/logo.png"></a>
+        {% elseif language == 'en' %}
+            <a href="/en/mikolajska-studio"><img src="{{ paths.theme }}images/logo.png"></a>
+        {% endif %}
+    </div>
+    <div class="menu">
+    {{ menu('main' ~ language, 'modules/_menu.twig') }}
+    </div>
+</div>

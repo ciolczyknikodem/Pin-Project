@@ -1,0 +1,75 @@
+{% setcontent resources_title = resourcecontenttype ~ '/tytul' %}
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="utf-8">
+    <title>{{ record.title }} | {{ resources_title.html }}</title>
+    <meta name="description" content="">
+    <!-- Mobile-friendly viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Style sheet link -->
+    <link href="{{ paths.theme }}stylesheets/style.css" rel="stylesheet" media="all">
+    {#<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">#}
+    <script src="https://code.jquery.com/jquery-1.11.3.js"></script>
+    <link rel="author" href="https://plus.google.com/105354141326728770318" />
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-79779937-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script type="application/ld+json">
+{
+	"@context": {
+		"@vocab": "http://schema.org/"
+	},
+	"@graph": [
+		{
+			"@type": "Organization",
+			"name": "MIKOŁAJSKAstudio Krystyna Mikołajska",
+			"url": "http://mikolajskastudio.pl/",
+			"logo": "http://mikolajskastudio.pl/theme/mikolajskastudio-theme/images/logo.png"
+		},
+		{
+			"@type": "LocalBusiness",
+			"parentOrganization": {
+				"name": "MIKOŁAJSKAstudio Krystyna Mikołajska"
+			},
+			"name": "MIKOŁAJSKAstudio Krystyna Mikołajska",
+			"address": {
+				"@type": "PostalAddress",
+				"streetAddress": "Białoprądnicka 10/15",
+				"addressLocality": "Kraków",
+				"addressRegion": "małopolskie",
+				"postalCode": "31-221",
+				"telephone": "124156644",
+				"email": "kontakt@mikolajskastudio.pl"
+			},
+			"image": "http://mikolajskastudio.pl/theme/mikolajskastudio-theme/images/logo.png"
+		},
+		{
+			"@type": "LocalBusiness",
+			"parentOrganization": {
+				"name": "MIKOŁAJSKAstudio Krystyna Mikołajska"
+			},
+			"name": "MIKOŁAJSKAstudio Krystyna Mikołajska",
+			"address": {
+				"@type": "PostalAddress",
+				"streetAddress": "Nowogrodzka 50/515",
+				"addressLocality": "Warszawa",
+				"addressRegion": "mazowieckie",
+				"postalCode": "00-695",
+				"telephone": "530533909",
+				"email": "kontakt@mikolajskastudio.pl"
+			},
+			"image": "http://mikolajskastudio.pl/theme/mikolajskastudio-theme/images/logo.png"
+		}
+	]
+}
+</script>
+</head>

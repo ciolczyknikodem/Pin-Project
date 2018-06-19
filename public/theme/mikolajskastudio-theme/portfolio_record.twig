@@ -1,0 +1,180 @@
+{% extends 'modules/_lang_detect.twig' %}
+{% block main %}
+    {% if language == 'pl' %}
+        {% setcontent projectimg = projectsimgscontenttype where { parentpl: record.id } %}
+    {% elseif language == 'en' %}
+        {% setcontent projectimg = projectsimgscontenttype where { parenten: record.id } %}
+    {% endif %}
+
+    {% setcontent videos = projectsvidcontenttype where { parent: record.id } %}
+    {% include 'modules/_header.twig' %}
+    <link href="{{ paths.theme }}stylesheets/zoombox.css" rel="stylesheet" type="text/css" media="screen" />
+    <script>
+        $(document).on('mobileinit', function () {
+            $.mobile.ignoreContentEnabled = true;
+        });
+    </script>
+    <script src="{{ paths.theme }}js/jquery.mobile.js"></script>
+    <body class="projektybig">
+    {% include 'modules/_top_bar.twig' %}
+    <section class="clearfix proj-big toggled">
+        <div class="proj-foto">
+            <div class="main-slider-wrapper">
+                <div class="main-slider col-12">
+                    <div class="dots"></div>
+                    <!-- SLIDER NAVI -->
+                    {% if (projectimg|length + videos|length) > 1 %}
+                        <div class="slider-arrow-navi">
+                            <div class="ico arrow backToList"><img src="{{ paths.theme }}images/icons/projects.png"></div>
+                            <div class="ico arrow left"><img src="{{ paths.theme }}images/icons/wstecz.png"></div>
+                            <div class="ico arrow right"><img src="{{ paths.theme }}images/icons/dalej.png"></div>
+                        </div>
+                    {% endif %}
+                    <!-- SLIDES -->
+                    <ul class="slider">
+                        {% if videos|length > 0 %}
+                            {% for vid in videos %}
+                                <li class="slider-item" data-room="video?id={{ vid.id }}">
+                                    <iframe class="yt-player" width="560" height="315" src="{{ vid.embed }}" data-autoplay="?rel=0&autoplay=1" frameborder="0" allowfullscreen></iframe>
+                                </li>
+                            {% endfor %}
+                        {% endif %}
+                        {% for img in projectimg|reverse %}
+                            {% if language == 'pl' %}
+                                <li class="slider-item" data-room="{{ img.param1 }}?id={{ img.id }}">
+                                    <img class="slide" src="/files/{{ img.image }}" alt="{{ img.alt }}" title="{{ img.imgtitle }}">
+                                </li>
+                            {% elseif language == 'en' %}
+                                <li class="slider-item" data-room="{{ img.param1 }}?id={{ img.id }}">
+                                    <img class="slide" src="/files/{{ img.image }}" alt="{{ img.alten }}" title="{{ img.imgtitleen }}">
+                                </li>
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="proj-desc toggled">
+            <div class="ico desc-icon"></div>
+            <script>
+                /*((function(){$(document).ready(function(){$('.desc-icon').trigger('click')})})();*/
+            </script>
+            <div class="desc">
+                <h1>{{ record.title }}</h1>
+                {{ record.description }}
+
+                <!--                    początek IF -->
+                {% if (user) and language == 'en' %}
+                    <div class="duplicate-content">
+                        <span id="duplicate-instr">Wpisz hasło, aby skopiować dane dotyczące filtrów do wersji anglojęzycznej.</span>
+                        <input type="password" name="passconfirm" value="">
+                        <input type="submit" value="ZDUPLIKUJ DANE DO WERSJI EN" data-url="{{ language }}/projekty-i-realizacje/duplicateContent${{ record.peer }}&{{ record.id }}&pass="></input>
+                        <p id="report"></p>
+                    </div>
+                {% endif %}
+                <!--                    koniec IF -->
+
+                <!--                    {{ dump(user) }}</br>selfID{{ record.id }}</br>blizniak{{ record.peer }}-->
+            </div>
+        </div>
+        {% include 'modules/_footer2.twig' %}
+    </section>
+    <script src="{{ paths.theme }}js/project-slider.js"></script>
+    <script type="text/javascript" src="{{ paths.theme }}js/zoombox.js"></script>
+    <script type="text/javascript">
+
+        jQuery(function($){
+            $('a.zoombox').zoombox();
+
+            /**
+             * Or You can also use specific options
+             $('a.zoombox').zoombox({
+                theme       : 'zoombox',        //available themes : zoombox,lightbox, prettyphoto, darkprettyphoto, simple
+                opacity     : 0.8,              // Black overlay opacity
+                duration    : 800,              // Animation duration
+                animation   : true,             // Do we have to animate the box ?
+                width       : 600,              // Default width
+                height      : 400,              // Default height
+                gallery     : true,             // Allow gallery thumb view
+                autoplay : false                // Autoplay for video
+            });
+             */
+        });
+        var images = $('.desc').find('img');
+        for (var i = 0; i<images.length; i++){
+            var src = $(images[i]).attr('src'),
+                title = '',
+                code = $(images[i])[0].outerHTML;
+            console.log(code);
+            if($(images[i]).attr('title')){ title = $(images[i]).attr('title')}
+            $(images[i]).before('<a href="'+src+'" title="'+title+'" class="zoombox zgallery1">'+code+'</a>');//.after('</a>');
+            $(images[i]).hide();
+        }
+    </script>
+    <script>
+        $(document).on('click', 'input[type="submit"]', function(){
+            $.ajax({
+                dataType: 'json',
+                url:'{{ paths.rooturl }}' + $(this).attr('data-url')+$('[name="passconfirm"]').val(),
+                success: function(data){
+                    $.each(data, function(k, v){
+                        if (k == 'code'){
+                            if(v == 403){
+                                $('#report').html('Niepoprawne hasło');
+                            } else if (v == 404) {
+                                $('#report').html('Polski odpowiednik nie istnieje');
+                            } else if (v == 200){
+                                $('#report').html('Pomyślnie skopiowano');
+                            }
+                        }
+                    });
+                }
+            });
+        });
+
+        $(document).on("click", '.desc-icon', function(event) {
+            $(this).parent().toggleClass('toggled').parent().toggleClass('toggled');
+        });
+        $(document).keyup(function(e) {
+            if (e.keyCode == 27 && $('.proj-big').hasClass('toggled')) {
+                $('.proj-big').removeClass('toggled').children('.proj-desc').removeClass('toggled');
+            }
+        });
+        $('body').click(function(event) { //collapsing search module if expanded
+            if(!$(event.target).closest('.proj-desc').length && $('.proj-big').hasClass('toggled')) {
+                $('.proj-big').removeClass('toggled').children('.proj-desc').removeClass('toggled');
+            }
+        });
+
+        $(document).ready(function () {
+
+            var referrer = sessionStorage.getItem('projectReferrer');
+            var backToProjectList = $('.backToList');
+
+            function goBack(referrer) {
+                window.location.href = referrer;
+            };
+
+
+            backToProjectList.click(function (e) {
+                e.preventDefault();
+                goBack(referrer);
+            });
+
+            backToProjectList.hide();
+
+            if(!referrer) {
+                backToProjectList.hide();
+            }else if (referrer && referrer.indexOf('/projekty-i-realizacje') >= 0 || referrer.indexOf('/projects-realizations') >= 0) {
+                backToProjectList.show();
+            } else {
+                backToProjectList.hide();
+            }
+
+        });
+
+    </script>
+    </body>
+    </html>
+{% endblock main %}

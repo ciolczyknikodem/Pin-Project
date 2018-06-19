@@ -1,0 +1,42 @@
+{% extends 'modules/_lang_detect.twig' %}
+{% block main %}
+    {#{% setcontent publications = itemcontenttype where { parent: record.id } %}#}
+    {% setcontent publications = publicationscontenttype %}
+    {% include 'modules/_header.twig' %}
+
+<body class="publikacje">
+    {% include 'modules/_top_bar.twig' %}
+    
+<section class="clearfix">
+    {% for publication in publications %}
+    <div class="col-lg-3 col-md-4 col-xs-6 col-xxs-12">
+        <div class="public">
+            <div class="image-pub" style="background: url(/files/{{ publication.image }}) center / cover;">
+            </div>
+            <a href="{% if publication.pdf != '' %}files/{{ publication.pdf }}{% elseif publication.href != '' %}{{ publication.href }}{% else %}#{% endif %}">
+                {% if publication.name|length > 3 %}
+                {{ publication.name }}
+                {% else %}
+                {{ publication.datecreated|date("d/m/Y") }}
+                {% endif %}
+            </a>
+        </div>
+    </div>
+    {% endfor %}
+{% include 'modules/_footer2.twig' %}
+</section>
+    <script>
+        $(document).ready(function(){
+            var publications = $('.public').find('div');
+            publications.each(function(){
+                var width = $(this).width(),
+                    ratio = 500/720,
+                    parheight = $(this).parent().height(); //A4 proportions
+                $(this).css('height',ratio*width).css('position','relative');
+                //$(this).parent().css('height',parheight+40);
+            });
+        });
+    </script>
+</body>
+</html>
+{% endblock main %}

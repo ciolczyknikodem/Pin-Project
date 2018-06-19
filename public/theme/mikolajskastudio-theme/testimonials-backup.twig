@@ -1,0 +1,78 @@
+{% extends 'modules/_lang_detect.twig' %}
+{% block main %}
+    {% setcontent testimonials = itemcontenttype where { parent: record.id } %}
+    {% include 'modules/_header.twig' %}
+
+    <body class="referencje">
+    {% include 'modules/_top_bar.twig' %}
+
+    <section class="clearfix">
+        <div class="testimonials-container clearfix">
+        {% for testimonial in testimonials %}
+        <div class="col-lg-2 col-md-4 col-xs-6 col-xxs-12 refe">
+                    <div class="ref">
+                        <div class="reffot" style="background-image: url('/files/{{ testimonial.image }}');"></div>
+                        {{ testimonial.text }}
+                        <p>{{ testimonial.text2 }}</p>
+                    </div>
+                </div>
+        {% endfor %}
+            </div>
+        {% include 'modules/_footer.twig' %}
+    </section>
+        <script src="{{ paths.theme }}js/masonry.pkgd.min.js"></script>
+            <script>
+                function setHeight(num){
+                    var blocks = $('.testimonials-container').find('.refe'),                     //get all blocks
+                        counter = blocks.length,                                            //total amount of blocks
+                        rows;                                                               //rows number
+                    blocks.each(function(){$(this).css('height','');})
+                    counter%num == 0 ? rows = counter/num : rows = counter/num + 1;         //initialize rows number
+                    for(var i = 0; i < rows; i++){                                          //move with for loop into each row
+                        var height = 0,                                                     //initialize max block's height in row
+                            group = [];                                                     //declare array for blocks in this row
+                        for(var j = 1; j < num+1; j++){                                     //go through the row
+                            var index = (i * num) + j - 1,                                  //calculate proper block's index
+                                th = $(blocks[index]).outerHeight();                        //get current block's height
+                            if (index == counter){break;}                                   //check if there's any block in queue
+                            if(th > height){
+                                height = th;                                                //set proper height maximum
+                            }
+                            if(typeof blocks[index] !== typeof undefined) group.push(blocks[index]); //push blocks in current row to one array
+                        }
+                        $(group).each(function(){
+                            $(this).css('height', height + 'px');                                    //set calculated max-height for all blocks each row
+                        });
+                    }
+                }    
+                 function resizeTiles(){
+                    var ww = $(window).width();
+                    if(ww > 320){setHeight(1);}
+                    if(ww > 480){setHeight(2);}
+                    if(ww > 992){setHeight(3);}
+                    if(ww > 1200){setHeight(6);}
+                }
+                $(document).ready(function(){
+                    resizeTiles();
+//                    var $grid = $('.testimonials-container').masonry({
+//                        itemSelector: '.refe',
+//                        animate: 'true',
+//                        });
+//                    $grid.masonry('reloadItems')
+//                    $grid.masonry('layout');
+//                    var blocks = $('.offers');
+                });
+                $(window).resize(function(){
+                    resizeTiles();
+//                    var $grid = $('.testimonials-container').masonry({
+//                         itemSelector: '.refe',
+//                         animate: 'true',
+//                     });
+//                     $grid.masonry('reloadItems')
+//                     $grid.masonry('layout');
+                    resizeTiles();
+                });
+            </script>
+</body>
+</html>
+{% endblock main %}

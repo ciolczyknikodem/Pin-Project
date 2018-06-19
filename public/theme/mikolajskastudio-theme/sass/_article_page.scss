@@ -1,0 +1,32 @@
+.article{
+	$articleTitleGray: #616060;
+	$articleContentGray: #4a4a4a;
+	color: $articleContentGray;
+    position: relative;
+    section{
+        min-height: 100vh;
+    }
+	.margin-2pc{
+		//margin: 0 2%;
+		padding: 80px 20px;
+        box-sizing: border-box;
+        display: block;
+        margin: 0 auto;
+        max-width: 1024px;
+        position: relative;
+        float: none;
+		#title{
+			font-family: 'Open Sans', sans-serif;
+			color: $articleTitleGray;
+			font-size: 36px;
+			font-weight: 200;
+			margin:0;
+		}
+		
+		#content{
+			font-family: 'Open Sans', sans-serif;
+			font-size: 14px;
+			line-height: 25px;
+		}
+	}
+}

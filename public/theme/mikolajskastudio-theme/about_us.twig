@@ -1,0 +1,38 @@
+{% extends 'modules/_lang_detect.twig' %}
+{% block main %}
+    {#{% setcontent team = itemcontenttype where { parent: record.id } %}#}
+    {% setcontent team = stuffcontenttype %}
+    {% include 'modules/_header.twig' %}
+
+    <body class="o-nas2">
+    <div class="menu-overlay"></div>
+    {% include 'modules/_top_bar.twig' %}
+
+    <section class="clearfix onas">
+        <div class="col-lg-4 col-md-3 col-xs-12 col-xxs-12 onastekst">
+            <h2>{{ record.topic }}</h2>
+            {{ record.description }}
+        </div>
+        <div class="col-lg-8 col-md-9 col-xs-12 col-xxs-12 onasimg"style="background-image: url(/files//{{ record.image }})"></div>
+    </section>
+    <section class="clearfix zespol">
+        {{ record.descriptionlong }}
+    </section>
+    <ul class="clearfix zespol2">
+        {% for member in team %}
+        <li>
+            <div class="my" style="background-image: url(/files/{{ member.image }})">
+                <div class="overlay">
+                    <div class="kto">
+                        <h3>{{ member.name }}</h3>
+                        <span>{{ member.role }}</span>
+                    </div>
+                </div>
+            </div>
+        </li>
+        {% endfor %}
+{% include "modules/_footer2.twig" %}
+    </ul>
+</body>
+</html>
+{% endblock main %}

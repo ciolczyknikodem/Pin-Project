@@ -1,0 +1,68 @@
+@import "mixins";
+@import "bootstrap-grid";
+@import "grid_custom";
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,700&subset=latin-ext');
+@import "main_page";
+
+$bg-color: rgba(247,247,247,1);
+$bg-color2: rgba(115,115,115,1);
+$footer-color: rgba(164,164,164,1);
+$footer-border: rgba(179,179,179,1);
+$footer-text-color: rgba(247,247,247,1);
+$footer-trans-color: rgba(66,66,66,0.7);
+$footer-trans-text-color: rgba(255,255,255,1);
+$black: rgba(0,0,0,1);
+$white: rgba(255,255,255,1);
+$gray: rgba(118,118,118,1);
+
+* {
+box-sizing: border-box;
+font-family: Lato, sans-serif;
+}
+@include undecorated-link;
+.jak-powstaje-projekt {
+    @import "podstrony/jpp";
+}
+.o-nas {
+    @import "podstrony/onas";
+}
+.o-nas2 {
+    @import "podstrony/onas2";
+}
+.projekty {
+    @import "podstrony/projekty";
+}
+.projektybig {
+    @import "podstrony/projektybig";
+}
+.referencje {
+    @import "podstrony/referencje";
+}
+.porady {
+    @import "podstrony/porady";
+}
+.publikacje {
+    @import "podstrony/publikacje";
+}
+.footer, .footer-trans {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+    width: 100%;
+    font-size: 0.70em;
+}
+.footer {
+    background: $footer-color;
+    border-top: 1px solid $footer-border;
+
+    color: $footer-text-color;
+}
+.footer-trans {
+    background: $footer-trans-color;
+    color: $footer-trans-text-color;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    background: $footer-trans-color;
+}

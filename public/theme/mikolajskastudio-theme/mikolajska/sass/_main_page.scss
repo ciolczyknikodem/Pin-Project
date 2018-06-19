@@ -1,0 +1,44 @@
+//====================================================================================================================== IMPORT BASIC ELEMENTS
+@import "_bootstrap-grid";
+@import "fonts";
+@import "mixins";
+
+//====================================================================================================================== COLORS
+$white: #ffffff;
+$black: #000000;
+
+//====================================================================================================================== MAIN CONFIGURATION
+body{
+	padding: 0;
+	margin: 0;
+	overflow-x: hidden;
+	width: 100vw;
+	a{
+		text-decoration: none !important;
+		*{text-decoration: none !important}
+		&:hover, &:visited, &:focus{
+			text-decoration: none !important;
+		}
+	}
+}
+
+ul{
+	list-style: none;
+}
+
+div, ul{
+	margin: 0;
+	padding: 0;
+}
+
+.page{
+	width: 100%;
+	position: relative;
+	left: 0;
+	top: 0;
+	min-height: 100vh;
+}
+
+//====================================================================================================================== IMPORT PAGES' SCSS FILES
+@import "home_page";
+@import "modules/top_bar";

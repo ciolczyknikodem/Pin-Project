@@ -1,0 +1,30 @@
+@media(max-width: 500px) {
+	section#homeslider .main-slider-wrapper .main-slider ul.slider li.slider-item {
+		.slogan {
+			width: 350px;
+			.big-sentence {
+				font-size: 34px;
+				line-height: 36px;
+			}
+			.small-sentence{
+				font-size: 10px;
+				letter-spacing: 4px;
+			}
+		}
+	}
+}
+@media(max-width: 360px) {
+	section#homeslider .main-slider-wrapper .main-slider ul.slider li.slider-item {
+		.slogan {
+			width: 300px;
+			.big-sentence {
+				font-size: 28px;
+				line-height: 30px;
+			}
+			.small-sentence {
+				font-size: 9px;
+				letter-spacing: 3px;
+			}
+		}
+	}
+}

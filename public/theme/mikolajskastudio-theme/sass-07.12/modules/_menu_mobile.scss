@@ -1,0 +1,58 @@
+@media (max-width: 768px) {
+	#more-navi {
+		position: absolute;
+		top: 16px;
+		right: 20px;
+		margin: 0;
+		z-index: 100 !important;
+		.burger {
+			display: block;
+			@include transform(translate(0, 0));
+			span, span:before, span:after {
+				width: 26px;
+				height: 3px;
+				display: inline-block;
+			}
+		}
+		.more-down, span {
+			display: none;
+		}
+		.more-navi-items {
+			position: fixed;
+			display: block;
+			width: 280px;
+			height: 100vh;
+			right: 0;
+			top: 0;
+			margin: 0;
+			padding: 15px;
+			box-sizing: border-box;
+			@include border-radius(0px);
+			background-color: $black;
+			border: none;
+			li {
+				width: 100%;
+				height: 50px;
+				line-height: 50px;
+				border-top: 0.5px solid $white;
+				background: transparent;
+				box-sizing: border-box;
+				font-size: 14px;
+				font-weight: 600;
+				&:first-of-type {
+					border-top: 0px;
+					margin-top: 40px;
+				}
+				&:hover {
+					background: transparent;
+					a {
+						color: $white;
+					}
+				}
+			}
+		}
+		&:hover {
+			border-bottom: 0;
+		}
+	}
+}

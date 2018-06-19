@@ -1,0 +1,41 @@
+{% spaceless %}
+    {# --- attempt to get the language from the URL --- #}
+    {% if app.canonicalpath %}
+        {% set languageslug = app.canonicalpath|split('/')[1] %}
+    {% else %}
+        {% set languageslug = app.paths.current|split('/')[1] %}
+    {% endif %}
+
+    {# --- set the language, otherwise fallback to default language --- #}
+    {% if languageslug in ['en', 'de'] %}
+        {% set language = languageslug %}
+    {% else %}
+        {% set language = 'pl' %}
+    {% endif %}
+
+    {% set pagescontenttype         = 'pages' ~ language %}
+    {% set articlecontenttype       = 'articles' ~ language %}
+    {% set portfoliocontenttype     = 'portfolio' ~ language %}
+    {% set projectimgcontenttype    = 'projectimg' ~ language %}
+    {% set resourcecontenttype      = 'resources' ~ language %}
+    {% set slidercontenttype        = 'sliderpl' %}
+    {% set itemcontenttype          = 'item' ~ language %}
+    {% set projectsimgscontenttype  = 'projectimgpl' %}
+    {% set offerscontenttype        = 'offer' ~ language %}
+    {% set projectsvidcontenttype   = 'projectvid' ~ language %}
+    {% set badgescontenttype        = 'badges' %}
+    {% set processcontenttype       = 'process' ~ language %}
+    {% set testimonialscontenttype  = 'testimonials' ~ language %}
+    {% set publicationscontenttype  = 'publications' ~ language %}
+    {% set stuffcontenttype         = 'stuff' ~ language %}
+    {# ... more ContentTypes ... #}
+
+    {#{% set menumain              = language ~ '-main' %}#}
+    {#{% set menufooter            = language ~ '-footer' %}#}
+    {# ... more menus ... #}
+
+{% endspaceless %}
+
+{% block main %}
+
+{% endblock main %}

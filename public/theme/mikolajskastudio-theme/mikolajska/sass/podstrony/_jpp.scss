@@ -1,0 +1,52 @@
+section {
+    background: $bg-color;   
+    min-height: 100vh;
+    padding-top: 150px;
+}    
+.jpp {
+    text-align: justify;
+    font-size: 0.75em;
+    min-height:  450px;
+    padding-bottom: 50px;
+    
+    p {
+    text-align: center;
+    font-weight: bold;
+}
+}
+[class*="icon-"] {
+    width: 82px;
+    height: 82px;
+    margin: 0 auto;
+    position: relative;
+    background-position: center; 
+    background-repeat: no-repeat;
+    
+    p {
+    position: absolute;
+    bottom: -2;
+    left: -20;
+    margin: 0;
+    }
+}
+.icon-1 {
+    background-image: url(../svg/Icon1.svg);
+}
+.icon-2 {
+    background-image: url(../svg/Icon2.svg);
+}
+.icon-3 {
+    background-image: url(../svg/Icon3.svg);
+}
+.icon-4 {
+    background-image: url(../svg/Icon4.svg);
+}
+.icon-5 {
+    background-image: url(../svg/Icon5.svg);
+}
+//===================================================================== RWD
+@media (max-width: 480px) { //-------------- telefon
+    .jpp {
+    padding: 0 50 0 50;
+}
+}

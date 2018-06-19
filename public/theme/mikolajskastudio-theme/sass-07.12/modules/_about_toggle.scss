@@ -1,0 +1,32 @@
+.about-container{
+	width: 300px;
+	z-index: 3;
+	background-color: rgba($black, 0.4);
+	@include absolute(80px,auto,auto,-300px);
+	//transition: left 0.8s;
+	@include transition(0.15s, ease-in);
+	color: $white;
+	padding: 20px;
+	&.show {
+		left: 15px;
+	}
+}
+
+.ico-about-us.show {
+	left: 330px;
+}
+
+@media (max-width: 480px){
+    .ico-about-us{
+        display: block;
+        &.show{
+            display: none;
+        }
+    }
+    .about-container{
+        background-color: rgba($black, 0.6);
+        &.show {
+            left: 15px;
+        }
+    }
+}

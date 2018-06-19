@@ -1,0 +1,25 @@
+{% extends 'modules/_lang_detect.twig' %}
+{% block main %}
+    {% setcontent tips = articlecontenttype %}
+    {% include 'modules/_header.twig' %}
+
+<body class="porady">
+    {% include 'modules/_top_bar.twig' %}
+    
+<section class="clearfix">
+    {% for tip in tips %}
+    <div class="col-lg-3 col-md-4 col-xs-6 col-xxs-12">
+        <div class="rady">
+            <div style="background-image: url(/files/{{ tip.image }})">
+                <a href="{{ tip.link }}">
+                    <p>{{ tip.topic|upper }}</p>
+                </a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+{% include 'modules/_footer2.twig' %}
+</section>
+</body>
+</html>
+{% endblock main %}

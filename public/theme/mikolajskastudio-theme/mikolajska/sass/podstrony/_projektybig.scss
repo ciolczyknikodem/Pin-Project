@@ -1,0 +1,39 @@
+.proj-big {
+    background: $bg-color;
+    height: 100%;
+    
+    .proj-desc {
+        background: $white;
+        display: flex;
+        align-items: center;
+        height: 100%;
+        
+        .desc {
+            padding: 0 30 0 30;
+            font-size: 0.9em;
+        
+            p {
+                margin: 0;
+                position: relative;
+                margin-bottom: 90px;
+                font-size: 1.1em;
+                letter-spacing: 0.1em;
+            }
+            p:after {
+                content: "";
+                position: absolute;
+                border-bottom: 1px solid $gray;
+                width: 25%;
+                bottom: -30;
+                left: 0;
+            
+                    }
+                }
+            }
+
+    .proj-foto {
+        background: url("../images/proj1.png") center / cover;
+        padding: 30;
+        height: 100%;
+}
+}

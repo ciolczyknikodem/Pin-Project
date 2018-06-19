@@ -1,0 +1,24 @@
+.homepage{
+	.ico {
+		z-index: 2;
+		height: 35px;
+		img {
+			width: 35px;
+			height: 35px;
+		}
+	}
+	.ico-about-us {
+		@include absolute(65px,auto,auto,15px);
+	}
+	.ico-contact {
+		@include absolute(65px,15px,auto,auto);
+	}
+	.icons-contact{
+		@include absolute(auto,auto,15px,15px);
+		a {
+			display: inline-block;
+		}
+	}
+}
+
+@import "modules/slider";

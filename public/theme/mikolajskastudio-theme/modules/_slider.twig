@@ -1,0 +1,41 @@
+{% setcontent slider = slidercontenttype %}
+
+<section id="homeslider" class="clearfix">
+    <div class="main-slider-wrapper">
+        <div class="main-slider col-12">
+            <!-- SLIDER NAVI -->
+            <div class="slider-arrow-navi">
+                <div class="ico arrow left"><img src="{{ paths.theme }}images/icons/wstecz.png"></div>
+                <div class="ico arrow right"><img src="{{ paths.theme }}images/icons/dalej.png"></div>
+            </div>
+            <!-- SLIDES -->
+            <ul class="slider">
+                {% for slide in slider %}
+                    {% if language == 'pl' %}
+                        {% set sloganbig = slide.sloganbig %}
+                        {% set slogansmall = slide.slogansmall %}
+                        {% set slidelink = slide.slidelink %}
+                    {% elseif language == 'en' %}
+                        {% set sloganbig = slide.sloganbigen %}
+                        {% set slogansmall = slide.slogansmallen %}
+                        {% set slidelink = slide.slidelinken %}
+                    {% endif%}
+                    <li class="slider-item" style="background-image: url('/files/{{ slide.image }}');">
+                        <div class="slide">
+                            <div class="slogan">
+                                <div class="big-sentence">{{ sloganbig }}</div>
+                                {% if slogansmall|length > 3 %}
+                                    {% if slidelink|length > 3 %}
+                                        <a class="small-sentence" href="{{ slidelink }}">{{ slogansmall }}</a>
+                                    {% else %}
+                                        <div class="small-sentence">{{ slogansmall }}</div>
+                                    {% endif %}
+                                {% endif %}
+                            </div>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</section>

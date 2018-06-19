@@ -1,0 +1,87 @@
+.wnetrza {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    
+li {
+    width: 33.3333%;
+    height: 50%;
+    float: left;
+
+    a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0);
+        }
+        .zobacz {
+            text-align: center;
+            display: none;
+            
+            h3 {
+                margin: 0;
+                color: $white;
+                font-weight: normal;
+                padding-bottom: 15px;
+                }
+            span {
+                border: 1px solid white;
+                @include border-radius(20px);
+                background: $white;
+                padding: 5 25 5 25;
+                font-size: 0.8em;
+                }
+        }
+    a:hover {
+    background: rgba(0,0,0,0.7);
+    }
+    a:hover .zobacz {
+        display: block;
+    }
+}
+}
+//-----nav
+.filter-nav {
+    height: 400px;
+    background-color: $footer-trans-color;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    
+    .open {
+        position: absolute;
+        right: -50;
+        
+        img {
+            width: 50px;
+            height: 50px;
+        }
+    }
+}
+#filter {
+    width: 0;
+}
+#filter.aa {
+    width: 300px;
+}
+//----end of nav
+@media (max-width: 599px) {
+.wnetrza {
+        li {
+            width: 100%;
+            height: 50%;
+}
+}
+}
+@media (min-width: 600px) and (max-width: 960px) {
+.wnetrza {
+        li {
+            width: 50%;
+            height: 50%;
+}
+}
+}

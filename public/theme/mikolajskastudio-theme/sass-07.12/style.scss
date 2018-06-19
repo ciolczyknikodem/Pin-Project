@@ -1,0 +1,180 @@
+@import "mixins";
+@import "bootstrap-grid";
+@import "grid_custom";
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,700&subset=latin-ext');
+@import "main_page";
+
+$bg-color: rgba(247,247,247,1);
+$bg-color2: rgba(115,115,115,1);
+$footer-color: rgba(164,164,164,1);
+$footer-border: rgba(179,179,179,1);
+$footer-text-color: rgba(247,247,247,1);
+$footer-trans-color: rgba(66,66,66,0.7);
+$footer-trans-text-color: rgba(255,255,255,1);
+$black: rgba(0,0,0,1);
+$white: rgba(255,255,255,1);
+$gray: rgba(118,118,118,1);
+$gray2: #8f8f8f;
+$gray3: #5a5a5a;
+$gray4: #646464;
+$gray5: #b7b7b7;
+
+//Montserrat font family
+@font-face {
+    font-family: 'Montserrat';
+    src:    url('../images/fonts/montserrat/montserrat-100.ttf') format("truetype");
+    src:    url('../images/fonts/montserrat/montserrat-100.eot') format("embedded-opentype");
+    src:    url('../images/fonts/montserrat/montserrat-100.woff');
+    src:    url('../images/fonts/montserrat/montserrat-100.woff2');
+    font-weight: 100;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Montserrat';
+    src:    url('../images/fonts/montserrat/montserrat-300.ttf') format("truetype");
+    src:    url('../images/fonts/montserrat/montserrat-300.eot') format("embedded-opentype");
+    src:    url('../images/fonts/montserrat/montserrat-300.woff');
+    src:    url('../images/fonts/montserrat/montserrat-300.woff2');
+    font-weight: 300;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Montserrat';
+    src:    url('../images/fonts/montserrat/montserrat-400.ttf') format("truetype");
+    src:    url('../images/fonts/montserrat/montserrat-400.eot') format("embedded-opentype");
+    src:    url('../images/fonts/montserrat/montserrat-400.woff');
+    src:    url('../images/fonts/montserrat/montserrat-400.woff2');
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Montserrat';
+    src:    url('../images/fonts/montserrat/montserrat-500.ttf') format("truetype");
+    src:    url('../images/fonts/montserrat/montserrat-500.eot') format("embedded-opentype");
+    src:    url('../images/fonts/montserrat/montserrat-500.woff');
+    src:    url('../images/fonts/montserrat/montserrat-500.woff2');
+    font-weight: 500;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Montserrat';
+    src:    url('images/fonts/montserrat-700.ttf') format("truetype");
+    src:    url('../images/fonts/montserrat/montserrat-700.eot') format("embedded-opentype");
+    src:    url('../images/fonts/montserrat/montserrat-700.woff');
+    src:    url('../images/fonts/montserrat/montserrat-700.woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Montserrat';
+    src:    url('../images/fonts/montserrat/montserrat-900.ttf') format("truetype");
+    src:    url('../images/fonts/montserrat/montserrat-900.eot') format("embedded-opentype");
+    src:    url('../images/fonts/montserrat/montserrat-900.woff');
+    src:    url('../images/fonts/montserrat/montserrat-900.woff2');
+    font-weight: 900;
+    font-style: normal;
+}
+//Font variables
+$montserrat : 'Montserrat', sans-serif;
+
+* {
+box-sizing: border-box;
+font-family: Lato, sans-serif;
+}
+@include undecorated-link;
+.jak-powstaje-projekt {
+    @import "podstrony/jpp";
+}
+.o-nas {
+    @import "podstrony/onas";
+}
+.o-nas2 {
+    @import "podstrony/onas2";
+}
+.projekty {
+    @import "podstrony/projekty";
+}
+.projektybig {
+    @import "podstrony/projektybig";
+}
+.referencje {
+    @import "podstrony/referencje";
+}
+.porady {
+    @import "podstrony/porady";
+}
+.publikacje {
+    @import "podstrony/publikacje";
+}
+.contact {
+    @import "podstrony/contact";
+} 
+@import "_article_page";
+
+.oferta {
+    @import "podstrony/oferta";
+}
+
+.footer, .footer-trans, .footer-n {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+    width: 100%;
+    font-size: 0.70em;
+}
+.footer, .footer-n {
+    background: $footer-color;
+    border-top: 1px solid $footer-border;
+    color: $footer-text-color;
+}
+.footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: 200;
+}
+.footer-trans {
+    background: $footer-trans-color;
+    color: $footer-trans-text-color;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    background: $footer-trans-color;
+    z-index: 9999;
+}
+
+.error {
+    .error-wrapper{
+        @include absolute(50%, 50%, auto, auto);
+        @include transform(translate(50%, -50%));
+        max-width: 90vw;
+        img{
+            position: relative;
+            max-width: 100%;
+            width: 300px;
+        }
+        .back-button{
+            top: 50px;
+            width: 300px;
+            max-width: 90vw;
+            min-height: 50px;
+            @include border-radius(25px);
+            line-height: 24px;
+            padding: 13px 20px;
+            font-size: 16px;
+            font-weight: 700;
+            font-family: $lato;
+            background-color: $black;
+            color: $white;
+            text-align: center;
+            display: block;
+            margin: 0 auto;
+            letter-spacing: 2px;
+            @include transition(0.15s, ease-in);
+            &:hover{
+                background-color: $gray3;
+            }
+        }
+    }
+}

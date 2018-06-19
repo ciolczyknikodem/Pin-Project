@@ -1,0 +1,90 @@
+section {
+    background: $bg-color;   
+    min-height: 100vh;
+    padding: 50px 0px 70px 0px;
+    position: relative;
+    &#services-paragraph{
+        background-color: #bfb49e;
+        color: #efefef;
+        font-family: $lato;
+        min-height: unset;
+        padding: 30px 50px 60px 50px;
+        .paragraph-wrapper{
+            max-width: 800px;
+            display: block;
+            margin: 0 auto;
+            font-weight: 300;
+            text-align: justify;
+            @include undecorated-link;
+            a{
+                color: $white;
+                font-weight: 400;
+            }
+        }
+    }
+}
+.offers {
+    padding-top: 30px;
+    .offer {
+        border: 0.5px solid #c0c0c0;
+        //@include border-radius(20px);
+        overflow: hidden;
+        position: relative;
+        background-size: cover;
+        background-position: center;
+        .offer-icon{
+            z-index: 2;
+            @include bg-char(50%,50%,no-repeat,cover);
+            width: 30px;
+            height: 30px;
+            float: right;
+            position: relative;
+            margin-left: 10px;
+            margin-bottom: 10px;
+            background-image: url(../svg/Icon6.svg);
+            opacity: 0.9;
+        }
+        .overlay{
+            @include absolute(0,0,0,0);
+            @include bg-gradient((rgba($white,0.8) 30%,rgba($white,0)));
+            z-index: 1;
+        }
+        .content {
+            z-index: 2;
+            padding: 20px;
+            position: relative;
+            h3 {
+                font-size: 21px;
+                font-weight: 300;
+                color: lighten($black,10%);
+                margin: 0 0 15px 0;
+                text-transform: uppercase;
+            }
+            p {
+                margin: 0;
+                font-size: 14px;
+                font-weight: 300;
+                text-align: justify;
+            }
+            img {
+                max-width: 100%;
+                margin: 10px auto;
+                margin-bottom: 0;
+            }
+            &.text-bot {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+            }
+        }
+        &.shape-1 {
+            min-height: 200px;
+        }
+        &.shape-2 {
+            min-height: 400px;
+        }
+        &.shape-3 {
+            min-height: 600px;
+        }
+    }
+}

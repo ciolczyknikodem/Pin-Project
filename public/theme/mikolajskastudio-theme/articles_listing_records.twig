@@ -1,0 +1,13 @@
+{% setcontent articles = articlecontenttype %}
+    <ul>
+    {% for article in articles %}
+        <li>
+            <hr>
+            <a href="{{ article.link }}"><h1>{{ article.title }}</h1></a>
+            <br>
+            <p>{{ project.description|escape[0:600] }}</p>
+            <br>
+            <hr>
+        </li>
+    {% endfor %}
+    </ul>

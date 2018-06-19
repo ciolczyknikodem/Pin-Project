@@ -1,0 +1,41 @@
+{% extends 'modules/_lang_detect.twig' %}
+{% block main %}
+    {#{% setcontent how_its_made = itemcontenttype where { parent: record.id } %}#}
+    {% setcontent how_its_made = processcontenttype %}
+    {% include 'modules/_header.twig' %}
+
+<body class="jak-powstaje-projekt">
+{% include 'modules/_top_bar.twig' %}
+<section class="clearfix">
+    {% for him in how_its_made %}
+        {% if loop.index == 1  %}
+            <div class="col-lg-2 col-lg-offset-1 col-md-4 col-md-offset-2 col-xs-6 col-xxs-12 jpp">
+                <div class="icon-{{ loop.index }}"><p>{{ loop.index }}.</p></div>
+                <p>{{ him.title }}</p>
+                {{ him.description }}
+            </div>
+        {% elseif loop.index % 5 == 1 %}
+            <div class="col-lg-2 col-lg-offset-1 col-md-4 col-xs-6 col-xxs-12 jpp">
+                 <div class="icon-{{ loop.index }}"><p>{{ loop.index }}.</p></div>
+                <p>{{ him.title }}</p>
+                {{ him.description }}
+            </div>
+    {% elseif loop.index % 2 == 0 %}
+            <div class="col-lg-2 col-md-4 col-xs-6 col-xxs-12 jpp">
+                <div class="icon-{{ loop.index }}"><p>{{ loop.index }}.</p></div>
+                <p>{{ him.title }}</p>
+                {{ him.description }}
+            </div>
+    {% else %}
+            <div class="col-lg-2 col-lg-offset-0 col-md-4 col-md-offset-2 col-xs-6 col-xxs-12 jpp">
+                <div class="icon-{{ loop.index }}"><p>{{ loop.index }}.</p></div>
+                <p>{{ him.title }}</p>
+                {{ him.description }}
+            </div>
+        {% endif %}
+    {% endfor %}
+{% include 'modules/_footer2.twig' %}
+</section>
+    </body>
+</html>
+{% endblock main %}

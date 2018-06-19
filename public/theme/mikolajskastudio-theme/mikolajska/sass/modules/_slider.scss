@@ -1,0 +1,158 @@
+//==================================================================================================== DEVELOPER TOOLS
+@import "../grid_custom";
+@import "../mixins";
+
+//=================================================================================================== SLIDER STYLES
+section#homeslider{
+    z-index: 1;
+    top: 0;
+    position: relative;
+    width: 100%;
+    .main-slider-wrapper{
+        .main-slider{
+            position: relative;
+            width: 100% !important;
+            height: 100vh !important;
+            min-height: 350px;
+            overflow-x: hidden !important;
+            box-sizing: border-box;
+            @include transition(0.5s, ease-in);
+            z-index: 20;
+            .slider-arrow-navi{
+                position: absolute;
+                bottom: 15px;
+                right: 15px;
+                z-index: 51;
+                .arrow{
+                    position: relative;
+                    display: inline-block;
+                    img {
+                        width: 35px;
+                        height: 35px;
+                    }
+                }
+            }
+            ul.slider{
+                padding: 0;
+                margin: 0;
+                list-style: none;
+                @include absolute(0,0,0,0);
+                box-sizing: border-box;
+                height: 100%;
+                overflow: hidden;
+                display: block;
+                li.slider-item {
+                    @include bg-char(50%, 50%, no-repeat, cover);
+                    width: 100vw;
+                    height: 100%;
+                    display: block;
+                    position: absolute;
+                    z-index: 20;
+                    &.active {
+                        z-index: 25
+                    }
+                    .slogan {
+                        @include absolute(50%, auto, auto, 50%);
+                        @include transform(translate(-50%, -50%));
+                        text-align: center;
+                        font-family: $montserrat;
+                        max-width: 540px;
+                        @include border-radius(7px);
+                        background-color: rgba($black, 0.4);
+                        padding: 20px;
+                        .big-sentence {
+                            font-size: 48px;
+                            color: $white;
+                            line-height: 50px;
+                        }
+                        .small-sentence {
+                            font-size: 14px;
+                            font-family: $lato;
+                            letter-spacing: 6px;
+                            color: $black;
+                            background-color: $white;
+                            display: inline-block;
+                            padding: 3px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 992px){
+    section#homeslider{
+        .main-slider-wrapper{
+            }
+            .main-slider{
+                ul.slider{
+                    li.slider-item{
+                    }
+                }
+                
+            }
+        }
+    }
+@media (max-width: 768px){
+    section#homeslider{
+        .main-slider-wrapper{
+            .main-slider{
+                ul.slider{
+                    li.slider-item{
+                        .slide-caption{
+                            display: none;
+                        }
+                    }
+                }
+                
+            }
+        }
+    }
+}
+@media (max-width: 480px){
+    section#homeslider{
+        .main-slider-wrapper{
+            .main-slider{
+                ul.slider{
+                    li.slider-item{
+                        .slide-caption{
+                            display: none;
+                        }
+                    }
+                }
+                
+            }
+        }
+    }
+}
+@media(max-width: 500px) {
+    section#homeslider .main-slider-wrapper .main-slider ul.slider li.slider-item {
+        .slogan {
+            width: 350px;
+            .big-sentence {
+                font-size: 34px;
+                line-height: 36px;
+            }
+            .small-sentence{
+                font-size: 10px;
+                letter-spacing: 4px;
+            }
+        }
+    }
+}
+@media(max-width: 360px) {
+    section#homeslider .main-slider-wrapper .main-slider ul.slider li.slider-item {
+        .slogan {
+            width: 300px;
+            .big-sentence {
+                font-size: 28px;
+                line-height: 30px;
+            }
+            .small-sentence {
+                font-size: 9px;
+                letter-spacing: 3px;
+            }
+        }
+    }
+}

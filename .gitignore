@@ -49,4 +49,4 @@ scrutinizer.phar
 composer.phar
 Thumbs.db
 Vagrantfile
-
+*.iml

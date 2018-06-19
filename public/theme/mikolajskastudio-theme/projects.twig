@@ -1,0 +1,31 @@
+{% extends 'modules/_lang_detect.twig' %}
+{% block main %}
+    {% setcontent projects = itemcontenttype where { parent: record.id } %}
+    {% include 'modules/_header.twig' %}
+
+<body class="projekty">
+    {% include 'modules/_top_bar.twig' %}
+    <div class="filters-container">
+    </div>
+    <ul id="portfolio-items">
+    </ul>
+<script src="{{ paths.theme }}js/portfolio_load.js"></script>
+<script src="{{ paths.theme }}js/portfolio_filter.js"></script>
+    <script>
+        $(document).ready(function(){
+            var lastScroll = localStorage.getItem('lastScroll');
+            if(lastScroll > 10){
+                var scrollWindow = setTimeout(function(){
+                    $(window).scrollTop(lastScroll);
+                },2800);
+            }
+            $('body').on('click','#portfolio-items li',function(){
+                var scrollTop = $(window).scrollTop();
+                localStorage.setItem("lastScroll", scrollTop);
+            });
+        });
+    </script>
+{% include 'modules/_footer2.twig' %}
+</body>
+</html>
+{% endblock main %}

@@ -1,0 +1,44 @@
+
+
+.about-container{
+    .about-text{
+        background-color: rgba($black, 0.4);
+        overflow: scroll;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: -20px;
+        bottom: -20px;
+        color: $white;
+	   padding: 25px;
+        text-overflow: ellipsis;
+        h1{
+            margin-top: 0px;
+        }
+    }
+	width: 300px;
+	z-index: 3;
+	
+	@include absolute(80px,auto,100px,-300px);
+	//transition: left 0.8s;
+	@include transition(0.15s, ease-in);
+	overflow: hidden;
+	&.show {
+		left: 15px;
+	}
+}
+
+@media (max-width: 480px){
+    .ico-about-us{
+        display: block;
+        &.show{
+            display: none;
+        }
+    }
+    .about-container{
+        background-color: rgba($black, 0.6);
+        &.show {
+            left: 15px;
+        }
+    }
+}

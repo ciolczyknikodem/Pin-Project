@@ -1,0 +1,15 @@
+{% extends 'modules/_lang_detect.twig' %}
+
+{% block main %}
+        <div>
+            <h1>{{ record.title }}</h1>
+            <br>
+            <p>{{ record.description|escape[0:600] }}</p>
+            <br>
+            <p>{{ record.descriptionlong }}</p>
+            <img src="/files/{{ record.image }}">
+            <p>{{ record.meta_keywords }}</p>
+            <p>{{ record.meta_description }}</p>
+            <p>{{ record.og_type }}</p>
+        </div>
+{% endblock main %}
