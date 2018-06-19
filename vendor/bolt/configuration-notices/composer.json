@@ -1,0 +1,39 @@
+{
+    "name": "bolt/configuration-notices",
+    "description": "Helper library to provide some helpful functionality to people, mostly by warning the user for common pitfalls and oversights in the basic configuration.",
+    "homepage": "http://bolt.cm",
+    "keywords": [
+        "bolt",
+        "configuration",
+        "extension",
+        "notices",
+        "helper"
+    ],
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Bob den Otter",
+            "email": "bob@twokings.nl"
+        },
+        {
+            "name": "Gawain Lynch",
+            "email": "gawain.lynch@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "bolt/bolt": "^3.3",
+        "bolt/collection": "^1.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Bolt\\ConfigurationNotices\\": "src"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
+    }
+}

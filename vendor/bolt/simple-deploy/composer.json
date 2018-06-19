@@ -1,0 +1,41 @@
+{
+    "name": "bolt/simple-deploy",
+    "description": "A simple tool to deploy a site build from a local workstation to a (S)FTP enabled host.",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Gawain Lynch",
+            "email": "gawain.lynch@gmail.com"
+        }
+    ],
+    "prefer-stable": true,
+    "require": {
+        "bolt/bolt": "^3.4",
+        "bolt/collection": "^1.1",
+        "bolt/filesystem": "^2.4",
+        "league/flysystem-sftp": "^1.0",
+        "symfony/config": "^2.8 || ^3.3 || ^4.0",
+        "symfony/console": "^2.8 || ^3.3 || ^4.0",
+        "symfony/yaml": "^2.8 || ^3.3 || ^4.0"
+    },
+    "require-dev": {
+        "doctrine/cache": "^1.6",
+        "phpunit/phpunit": "^4.8 || ^5.7 || ^6.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Bolt\\SimpleDeploy\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Bolt\\SimpleDeploy\\Tests\\": "tests"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.x-dev"
+        }
+    }
+}
