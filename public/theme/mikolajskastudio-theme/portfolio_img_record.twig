@@ -14,6 +14,9 @@
         <p>{{ image.description|escape[0:600] }}</p>
         <br>
         <img src="/files/{{ image.image }}">
+        <script type="text/javascript">
+            console.log("ZALADOWANE");
+        </script>
         <p>{{ image.is_implemented }}</p>
         <p>PARAM 1 {{ image.param1 }}</p>
         <p>PARAM 2 {{ image.param2 }}</p>
